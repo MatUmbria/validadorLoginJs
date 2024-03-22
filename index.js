@@ -33,6 +33,7 @@ const userInputs = {
 }
 
 const form = document.querySelector('form')
+const resp = document.querySelector('h3')
 
 form.addEventListener('submit', (ev) => {
     ev.preventDefault()
@@ -43,6 +44,7 @@ form.addEventListener('submit', (ev) => {
         userInputs.email.classList.add('success')
         validatePassword(userInputs.password.value)
         userInputs.password.classList.add('success')
+        resp.innerText(`${email.value} registrado com sucesso.`)
     } catch (err) {
         userInputs[err.input].classList.add('error')
         document.querySelector(`#${err.input}-error`).textContent = err.message
